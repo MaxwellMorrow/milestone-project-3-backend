@@ -1,13 +1,15 @@
 // dependencies
-require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
+
+// configuration
+require('dotenv').config();
+const PORT = process.env.PORT;
+
 // const path = require('path');
 const bodyParser = require("body-parser");
 const defineCurrentUser = require("./middleware/defineCurrentUser")
-// configuration
-const PORT = process.env.PORT;
 
 
 // middleware
@@ -23,12 +25,12 @@ app.use(defineCurrentUser)
 
 // root route
 app.get('/', (req, res) => {
-    res.send('Welcome to the Kula Lodge App!')
+    res.send('Welcome to the Kula Lodge App! YOOOOO!!!')
 });
 
 // Auth routes
-app.use('/users', require('./conrollers/users'))
-app.use('/authentication', require('./conrollers/authentication'))
+app.use('/users', require('./controllers/users'))
+app.use('/authentication', require('./controllers/authentication'))
 
 
 
